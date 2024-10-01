@@ -25,6 +25,13 @@ const puppyApi = api.injectEndpoints({
       query: (id) => "players/" + id,
       transformResponse: (response) => response.data.player,
       providesTags: ["Puppy"],
+    }),
+    deletePuppy: build.mutation({
+      query: (id) => ({
+        url: "players/" + id,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Puppy"],
     })
   }),
 });
