@@ -15,7 +15,13 @@ functions for each endpoint.
 */
 
 const puppyApi = api.injectEndpoints({
-  endpoints: (build) => ({}),
+  endpoints: (build) => ({
+    getPuppies: build.query({
+      query: () => "players",
+      transformResponse: (response) => response.data.players,
+      providesTags: ["Puppy"],
+    }),
+  }),
 });
 
 export const {
