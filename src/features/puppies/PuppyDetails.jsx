@@ -14,7 +14,7 @@ export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
   
   function removePuppy(id) {
     deletePuppy(id);
-    setSelectedPuppyId();
+    setSelectedPuppyId('');
   }
 
   // There are 3 possibilities:
@@ -36,7 +36,7 @@ export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
         </h3>
         <p>{puppy.breed}</p>
         <p>Team {puppy.team?.name ?? "Unassigned"}</p>
-        <button onClick={() => removePuppy(puppy.id)}>
+        <button onClick={() => removePuppy(selectedPuppyId)}>
           Remove from roster
         </button>
         <figure>
